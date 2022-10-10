@@ -54,6 +54,7 @@ public class MethodReference {
 
     private boolean isSink = false;
     private boolean isSource = false;
+    private boolean isGadgetsource = false;
     private boolean isStatic = false;
     private boolean isPublic = false;
     private boolean hasParameters = false;
@@ -186,7 +187,7 @@ public class MethodReference {
                 .append(modifiers, that.modifiers)
                 .append(parameterSize, that.parameterSize)
                 .append(callCounter, that.callCounter)
-                .append(isSink, that.isSink).append(isSource, that.isSource)
+                .append(isSink, that.isSink).append(isSource, that.isSource).append(isGadgetsource, that.isGadgetsource)
                 .append(isStatic, that.isStatic)
                 .append(hasParameters, that.hasParameters).append(isInitialed, that.isInitialed)
                 .append(isIgnore, that.isIgnore).append(isSerializable, that.isSerializable)
@@ -205,7 +206,7 @@ public class MethodReference {
                 .append(id).append(name).append(signature).append(subSignature).append(returnType)
                 .append(modifiers).append(classname).append(parameterSize).append(vul).append(callCounter)
 //                .append(parameters)
-                .append(isSink).append(isSource).append(isStatic)
+                .append(isSink).append(isSource).append(isGadgetsource).append(isStatic)
                 .append(hasParameters).append(isInitialed).append(isIgnore).append(isSerializable)
                 .append(isAbstract).append(isContainsSource).append(isEndpoint).append(isContainsOutOfMemOptions)
                 .append(isActionContainsSwap).append(isFromAbstractClass).toHashCode();

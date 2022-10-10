@@ -16,6 +16,7 @@ public interface MethodRefRepository extends Neo4jRepository<MethodEntity, Strin
             "{header:true, ignore: ['IS_INITIALED','ACTIONS', 'IS_ACTION_INITIALED', 'IS_BODY_PARSE_ERROR'], mapping:{ " +
             "IS_SINK: {type:'boolean'}, " +
             "IS_SOURCE: {type:'boolean'}, " +
+            "IS_GADGETSOURCE: {type:'boolean'}, " +
             "IS_CONTAINS_SOURCE: {type:'boolean'}, " +
             "IS_STATIC: {type:'boolean'}, " +
             "IS_ENDPOINT: {type:'boolean'}, " +

@@ -82,15 +82,17 @@ public class ClassInfoCollector {
         boolean isSink = false;
         boolean isIgnore = false;
         boolean isSource = false;
+        boolean isGadgetsource = false;
         if(rule != null && (rule.isEmptySignaturesList() || rule.isContainsSignature(methodRef.getSignature()))){
             // 当rule存在signatures时，该rule为精确匹配，否则为模糊匹配，仅匹配函数名是否符合
             isSink = rule.isSink();
             isIgnore = rule.isIgnore();
             isSource = rule.isSource();
+            isGadgetsource = rule.isGadgetsource();
 
             // 此处，对于sink、know、ignore类型的规则，直接选取先验知识
             // 对于source类型 不赋予其actions和polluted
-            if (!isSource) {
+            if (!isSource && !isGadgetsource) {
                 Map<String, String> actions = rule.getActions();
                 List<Integer> polluted = rule.getPolluted();
                 if(isSink){
@@ -108,6 +110,7 @@ public class ClassInfoCollector {
         methodRef.setSink(isSink);
         methodRef.setIgnore(isIgnore);
         methodRef.setSource(isSource);
+        methodRef.setGadgetsource(isGadgetsource);
         methodRef.setEndpoint(ref.isStrutsAction() || isEndpoint(method, relatedClassnames));
         methodRef.setNettyEndpoint(isNettyEndpoint(method, relatedClassnames));
         methodRef.setGetter(isGetter(method));

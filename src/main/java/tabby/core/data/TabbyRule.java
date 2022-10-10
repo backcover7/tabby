@@ -66,6 +66,8 @@ public class TabbyRule {
             return "source".equals(type);
         }
 
+        public boolean isGadgetsource() {return "gadgetsource".equals(type);}
+
         public Map<String, String> getActions(){
             return actions;
         }
